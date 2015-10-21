@@ -1,6 +1,6 @@
 (function(){
     $(document).ready(function(){
-    	var lineHeight = $('.imageContainer').height();
+    	
     	var counter = 0;
     	var arr = ['images/img1.jpg','images/img2.jpg','images/img3.jpg','images/img4.jpg','images/img5.jpg'];
     	var monthArr = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -72,9 +72,13 @@
 		});
     	
 		
-    	//var autoMove = window.setInterval(right,5000);
-    	$('.imageNavigateButton1, .imageNavigateButton2').css('line-height',lineHeight+'px');
+    	var autoMove = window.setInterval(right,5000);
+    	
     	$($('.thumBut')[0]).css('opacity',1);
+    	function isMobile() {
+          try{ document.createEvent("TouchEvent"); return true; }
+          catch(e){ return false; }
+        }
     	function imageReplaceFade(){
     		var image = $('.sliderImg');
   			image.fadeOut('1000', function () {
@@ -83,7 +87,7 @@
     		});
     	};
     	function thumbNailBorder(number){
-    		//	window.clearInterval(autoMove);
+    			window.clearInterval(autoMove);
     		var arrThumb = $('.thumBut');
     		for(var i=0;i<arrThumb.length;i++){
     			if($(arrThumb[i]).data('number')==number){
@@ -91,10 +95,10 @@
     				$(arrThumb[i]).siblings().css('opacity',0.2);
     			}
     		}
-    		//	autoMove = window.setInterval(right,5000);	
+    			autoMove = window.setInterval(right,5000);	
     	}
     	function left(){
-  			//	window.clearInterval(autoMove);
+  				window.clearInterval(autoMove);
   			if(counter == 0){
   				counter = arr.length-1;
   			}
@@ -103,7 +107,7 @@
   			}
   			imageReplaceFade();
   			thumbNailBorder(counter);
-    		//	autoMove = window.setInterval(right,5000);	
+    			autoMove = window.setInterval(right,5000);	
   			
   		};
   		function right(){
@@ -119,6 +123,14 @@
  		 	
  		 	
   		};
+
+  		if(isMobile()){
+  			console.log("yes mobile");
+            $('.imageContainer').css("height", ($(window).height())/2);    
+            
+        }
+        var lineHeight = $('.imageContainer').height();
+        $('.imageNavigateButton1, .imageNavigateButton2').css('line-height',lineHeight+'px');
     	$('.thumBut').click(function(){
     		counter = $(this).data('number');
     		imageReplaceFade();
@@ -132,7 +144,29 @@
         	buttonText: "Calender",
         	showButtonPanel: true
     	});
+    	$('.eventLike').on('click',function(){
+    		img = $(this).find("img");
+    		src = $(img).attr("src");
+    		src2 = $(img).data("src2");
+    		var temp = 0;
+    		temp=src;
+    		src = src2;
+    		src2=temp;
+    		$(img).attr("src",src);
+    		$(img).data("src2",src2);
+
+    		abbr = $(this).find("abbr");
+    		title = $(abbr).attr("title");
+    		title2 = $(abbr).data("title2");
+    		var temp2 = 0;
+    		temp2=title;
+    		title = title2;
+    		title2=temp2;
+    		$(abbr).attr("title",title);
+    		$(abbr).data("title2",title2);
+    	});
 		
+        
 	});
 		
 })();

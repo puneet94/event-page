@@ -16,6 +16,9 @@
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script type="text/javascript" src="event-page.js"> </script>
   <style type="text/css">
+        
+        @media (max-width: 767px){
+
         .sliderContainer{
           width:100%;
           margin:auto;
@@ -26,7 +29,6 @@
           width:100%;
           overflow:hidden;
           margin:auto;
-          height:500px;
           background-color:#d7f2e2;
           text-align: center;
         }
@@ -42,7 +44,6 @@
           top: 0;
           bottom: 0;
           cursor: pointer;
-          width: 5%;
           color: white;
           font-weight: 900;
           background-color: black;
@@ -56,9 +57,7 @@
           top: 0;
           bottom: 0;
           cursor: pointer;
-          width: 5%;
           color: white;
-          
           vertical-align: text-bottom;
           font-weight: 900;
           background-color: black;
@@ -66,7 +65,13 @@
           text-align: center;
           
         }
-
+        .thumbNailList{
+          position:absolute;
+          bottom:0;
+          text-align: center;
+          width:100%;
+          box-shadow: 0 15px 24px black, 0 19px 76px black;
+        }
         .thumBut{
           width: 11px;
           height: 11px;
@@ -77,42 +82,30 @@
           background-color: white;
           opacity:0.2;
         }
-        
-        .thumbNailList{
-          position:absolute;
-          bottom:0;
-          text-align: center;
-          width:100%;
-          box-shadow: 0 15px 24px black, 0 19px 76px black;
-          
-        }
-        
         .mainContainer{
           background-color:rgb(242,242,242);
         }
-        .dateFilterSection{
-          display: inline-block;
-          position: relative;
+        .eventsHeaderContainer{
+          text-align:center;
+          overflow:auto;
+        } 
+        .eventsHeader{
+          margin-top: 50px;
+          margin-bottom: 50px;
         }
-        .priceFilterSection{
-          display: inline-block;
-          position: relative;
-         
+        .eventsHeaderText{
+          background: #fff;
+          color: #333;
+          font-weight: 700;
+          padding: 10px 40px;
+          border: 1px solid #ddd;
         }
+       
         .filterButtonsSection {
           margin-bottom: 50px;
         }
-        .filterSearchBoxSection {
-          display: inline-block; 
-          position: absolute; 
-          right: 0;
-          top: 0;
-          border-left: 1px solid #ddd;
-          
-          height: 100%;
-        }
+        
 
-    
         .filterButtonsList{
           text-align: center;
         }
@@ -131,18 +124,48 @@
           cursor: pointer;
           font-weight:100;
         }
+        .dateFilterSection{
+          display: block;
+          text-align:center;
+          margin:5px;
+          position: relative;
+          border:1px solid #ddd;
+          background-color:white;
+          height:50px;
+          line-height: 50px;
+        }
+        .priceFilterSection{
+          display: block;
+          text-align: center;
+          margin:5px;
+          position: relative;
+          border:1px solid #ddd;
+          background-color:white;
+          height:50px;
+          line-height: 50px;
+        }
+        .dateFilterContent{
+          line-height: 50px;
+        }
+        .priceFilterContent{
+          line-height:50px;
+        }
+        .filterSearchBoxSection {
+          display: block; 
+          margin:5px;
+          border:1px solid #ddd;
+          background-color:white;
+        }
         #hiddenField{
           display: none;
         }
         .filterSearchcontainer{
-          background-color: white;
-          height: 50px;
-          vertical-align: middle;
           line-height: 50px;
           margin: auto;
-          width: 98%;
+          width: 100%;
           position: relative;
         }
+        
         .dateFilterIcon {
           margin: 10px;
         }
@@ -221,18 +244,18 @@
           right: -68px;
         }
         .eventsContainer{
-          width:98%;
+          width:100%;
           margin:auto;
         }
         .twoEventContainer{
-          margin-top:10px;
-          margin-bottom: 40px;
+          
+          
         } 
         .singleEventContainer{
-          height:200px;
-          width:49%;
-          margin-top:10px;
-          float:left;
+          
+          width:100%;
+          margin-top:20px;
+          
           background-color: white;
           box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.16), 0 10px 10px 0 rgba(0, 0, 0, 0.12);
           box-shadow: 0 15px 24px rgba(0, 0, 0, 0.22), 0 19px 76px rgba(0, 0, 0, 0.3);
@@ -240,13 +263,13 @@
           box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
         }
         .singleEventContainer2{
-          margin-left:2%;
+          
         }
         .event-image-container{
           position:relative;
-          width:50%;
+          width:100%;
           height:100%;
-          display: inline-block;
+          
         }
         .eventImage{
           height:100%;
@@ -264,20 +287,37 @@
         }
         .eventDuration {
           position: absolute;
-          bottom:10px;
-          left:10px;
+          bottom:0;
+          left:0;
           border: 1px solid #FFF;
           border-radius: 4px;
           padding: 5px 3px;
           font-size: 12px;
           color:#FFF;
+          margin:10px;
+        }
+        .eventLike{
+            position:absolute;
+            bottom:0;
+            right:0;
+            margin:10px;
+        }
+        .eventLikeIcon{
+            width:24px;
+            height:24px;
+            margin:10px;
+        }
+        .eventLikeIcon img{
+            width:100%;
+            height:100%;
         }
         .event-details-container{
           position:relative;
-          width:45%;
+          width:100%;
           vertical-align: top;
-          display: inline-block;
+          
           padding:10px;
+          height:100%;
           background-color: white;
         }
         .eventTitleText{
@@ -286,7 +326,7 @@
           color: rgb(0,172,236);   
         }
         .eventTypeCategoriesSection{
-          margin-top:5%;
+         
         }
         
         .eventCategoriesSection {
@@ -305,11 +345,16 @@
           font-weight: 100;
         }
         .eventLocationSection {
-          margin-top:5%;
-          font-size:12px;
+          margin-top: 4%;
+          font-size: 12px;
+          float: left;
+          width: 75%;
         }
         .viewDetailsSection {
-          margin-top:5%;
+          margin-top: 8%;
+          font-size: 12px;
+          float: right;
+          
         }
         .viewDetailsLink{
           
@@ -331,9 +376,6 @@
           display: inline-block;
           font-weight: 100;
         }
-        
-
-        @media (max-width: 767px){
         }
   </style>
 </head>
@@ -365,23 +407,16 @@
             </div>
             <span id="leftBut" class="imageNavigateButton1" ><i class="fa fa-chevron-left fa-2x"></i></span>
             <span id="rightBut" class="imageNavigateButton2"><i class="fa fa-chevron-right fa-2x"></i></span>
-
-            
           </section>
           <section class="mainContainer">
-            
             <section class="filterTabsContainer">
-              <section class="eventsHeaderContainer" style="text-align:center;overflow:auto;">
-              <div class="eventsHeader" style="margin-top: 50px;
-    margin-bottom: 50px;">
-                
-                  <span style="background: #fff;
-    color: #333;
-    font-weight: 700;padding: 10px 40px;border: 1px solid #ddd;">Events</span>
+              <section class="eventsHeaderContainer" >
+              <div class="eventsHeader" >
+                  <span class="eventsHeaderText">Events</span>
               </div>
             </section>
-              <section class="filterButtonsSection">
-                <div class="filterButtonsList">
+            <section class="filterButtonsSection">
+              <div class="filterButtonsList">
                   <span class="filterButton">
                     COMEDY
                   </span>
@@ -400,8 +435,8 @@
                   <span class="filterButton">
                     MUSIC
                   </span>
-                </div>
-              </section>
+              </div>
+            </section>
             </section>
             <section class="filterSearchcontainer">
               <section class="dateFilterSection">
@@ -514,6 +549,13 @@
                           <span>2015</span>
                         </div>    
                       </div>
+                      <div class="eventLike">
+                        <div class="eventLikeIcon">
+                          <abbr title="Add to Favorites" data-title2="Remove from favorites">
+                            <img src="http://fbe2c5f2ef3133aeaad1-938bde38aae6da0d08ebf26f58ae6895.r61.cf3.rackcdn.com/3favourite.png" data-src2="http://fbe2c5f2ef3133aeaad1-938bde38aae6da0d08ebf26f58ae6895.r61.cf3.rackcdn.com/3favourte%20highlighted.png">
+                          </abbr>
+                        </div>
+                      </div>
                     </div>
                     <div class="event-details-container">
                       <header class="eventTitle">
@@ -556,7 +598,9 @@
                           <a href="" class="viewDetailsLink"><span>View Details</span></a>
                         </div>
                       </section>
+                      <div class="clearDiv" style="clear:both;"></div>
                     </div>
+                    <div class="clearDiv" style="clear:both"></div>
                   </article>
                   <article class="singleEventContainer singleEventContainer2">
                     <div class="event-image-container">
@@ -575,6 +619,13 @@
                           <span>2015</span>
                         </div>    
                       </div>
+                      <div class="eventLike">
+                        <div class="eventLikeIcon">
+                          <abbr title="Add to Favorites" data-title2="Remove from favorites">
+                            <img src="http://fbe2c5f2ef3133aeaad1-938bde38aae6da0d08ebf26f58ae6895.r61.cf3.rackcdn.com/3favourite.png" data-src2="http://fbe2c5f2ef3133aeaad1-938bde38aae6da0d08ebf26f58ae6895.r61.cf3.rackcdn.com/3favourte%20highlighted.png">
+                          </abbr>
+                        </div>
+                      </div>
                     </div>
                     <div class="event-details-container">
                       <header class="eventTitle">
@@ -617,7 +668,153 @@
                           <a href="" class="viewDetailsLink"><span>View Details</span></a>
                         </div>
                       </section>
+                      <div class="clearDiv" style="clear:both;"></div>
                     </div>
+                    <div class="clearDiv" style="clear:both"></div>
+                  </article>
+                  <article class="clearArticle" style="clear:both"></article>
+                </section>
+                <section class="twoEventContainer">
+                  <article class="singleEventContainer">
+                    <div class="event-image-container">
+                      <img src="//in.bmscdn.com/events/eventlisting/ET00014607.jpg" class="eventImage">
+                      <div class="eventSlot">
+                        <span class="eventSlotText">Today</span> 
+                      </div>
+                      <div class="eventDuration">
+                        <div class="eventDurationDate">
+                          <span class="eventdurationStartMonth">Oct</span>
+                          <span class="eventDurationStartDate">19</span>
+                          <span>-</span>
+                          <span class="eventdurationEndMonth">Oct</span>
+                          <span class="eventDurationEndDate">20</span>
+                        </div>    
+                        <div class="eventDurationYear">
+                          <span>2015</span>
+                        </div>    
+                      </div>
+                      <div class="eventLike">
+                        <div class="eventLikeIcon">
+                          <abbr title="Add to Favorites" data-title2="Remove from favorites">
+                            <img src="http://fbe2c5f2ef3133aeaad1-938bde38aae6da0d08ebf26f58ae6895.r61.cf3.rackcdn.com/3favourite.png" data-src2="http://fbe2c5f2ef3133aeaad1-938bde38aae6da0d08ebf26f58ae6895.r61.cf3.rackcdn.com/3favourte%20highlighted.png">
+                          </abbr>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="event-details-container">
+                      <header class="eventTitle">
+                        <a href="" style="text-decoration:none"><h2 class="eventTitleText">Adlabs Imagica</h2></a>
+                      </header>
+                      <section class="eventTypeCategoriesSection">
+                        <span class="eventTypeCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventTypeCategoryTab">
+                          Business
+                        </span>
+                      </section>
+                      <section class="eventCategoriesSection">
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                      </section>
+                      <section class="eventLocationSection">
+                        <div class="eventAddress">
+                          <span class="eventAddressText">1-1-2/762 al Papudi</span>
+                        </div>
+                        <div class="eventVenueCity">
+                          <span class="eventVenueCityText">
+                            Zara Shopping Mall, Dubai
+                          </span>
+                        </div>
+                      </section>
+                      <section class="viewDetailsSection">
+                        <div class="viewDetailsButton">
+                          <a href="" class="viewDetailsLink"><span>View Details</span></a>
+                        </div>
+                      </section>
+                      <div class="clearDiv" style="clear:both;"></div>
+                    </div>
+                    <div class="clearDiv" style="clear:both"></div>
+                  </article>
+                  <article class="singleEventContainer singleEventContainer2">
+                    <div class="event-image-container">
+                      <img src="//in.bmscdn.com/events/eventlisting/ET00014607.jpg" class="eventImage">
+                      <div class="eventSlot">
+                        <span class="eventSlotText">Today</span> 
+                      </div>
+                      <div class="eventDuration">
+                        <div class="eventDurationDate">
+                          <span class="eventdurationMonth">Oct</span>
+                          <span class="eventDurationStartDate">19</span>
+                          <span>-</span>
+                          <span class="eventDurationEndDate">20</span>
+                        </div>    
+                        <div class="eventDurationYear">
+                          <span>2015</span>
+                        </div>    
+                      </div>
+                      <div class="eventLike">
+                        <div class="eventLikeIcon">
+                          <abbr title="Add to Favorites" data-title2="Remove from favorites">
+                            <img src="http://fbe2c5f2ef3133aeaad1-938bde38aae6da0d08ebf26f58ae6895.r61.cf3.rackcdn.com/3favourite.png" data-src2="http://fbe2c5f2ef3133aeaad1-938bde38aae6da0d08ebf26f58ae6895.r61.cf3.rackcdn.com/3favourte%20highlighted.png">
+                          </abbr>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="event-details-container">
+                      <header class="eventTitle">
+                        <a href="" style="text-decoration:none"><h2 class="eventTitleText">Adlabs Imagica</h2></a>
+                      </header>
+                      <section class="eventTypeCategoriesSection">
+                        <span class="eventTypeCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventTypeCategoryTab">
+                          Business
+                        </span>
+                      </section>
+                      <section class="eventCategoriesSection">
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                      </section>
+                      <section class="eventLocationSection">
+                        <div class="eventAddress">
+                          <span class="eventAddressText">1-1-2/762 al Papudi</span>
+                        </div>
+                        <div class="eventVenueCity">
+                          <span class="eventVenueCityText">
+                            Zara Shopping Mall, Dubai
+                          </span>
+                        </div>
+                      </section>
+                      <section class="viewDetailsSection">
+                        <div class="viewDetailsButton">
+                          <a href="" class="viewDetailsLink"><span>View Details</span></a>
+                        </div>
+                      </section>
+                      <div class="clearDiv" style="clear:both;"></div>
+                    </div>
+                    <div class="clearDiv" style="clear:both"></div>
                   </article>
                   <article class="clearArticle" style="clear:both"></article>
                 </section>
@@ -639,6 +836,13 @@
                           <span>2015</span>
                         </div>    
                       </div>
+                      <div class="eventLike">
+                        <div class="eventLikeIcon">
+                          <abbr title="Add to Favorites" data-title2="Remove from favorites">
+                            <img src="http://fbe2c5f2ef3133aeaad1-938bde38aae6da0d08ebf26f58ae6895.r61.cf3.rackcdn.com/3favourite.png" data-src2="http://fbe2c5f2ef3133aeaad1-938bde38aae6da0d08ebf26f58ae6895.r61.cf3.rackcdn.com/3favourte%20highlighted.png">
+                          </abbr>
+                        </div>
+                      </div>
                     </div>
                     <div class="event-details-container">
                       <header class="eventTitle">
@@ -681,7 +885,9 @@
                           <a href="" class="viewDetailsLink"><span>View Details</span></a>
                         </div>
                       </section>
+                      <div class="clearDiv" style="clear:both;"></div>
                     </div>
+                    <div class="clearDiv" style="clear:both"></div>
                   </article>
                   <article class="singleEventContainer singleEventContainer2">
                     <div class="event-image-container">
@@ -700,6 +906,13 @@
                           <span>2015</span>
                         </div>    
                       </div>
+                      <div class="eventLike">
+                        <div class="eventLikeIcon">
+                          <abbr title="Add to Favorites" data-title2="Remove from favorites">
+                            <img src="http://fbe2c5f2ef3133aeaad1-938bde38aae6da0d08ebf26f58ae6895.r61.cf3.rackcdn.com/3favourite.png" data-src2="http://fbe2c5f2ef3133aeaad1-938bde38aae6da0d08ebf26f58ae6895.r61.cf3.rackcdn.com/3favourte%20highlighted.png">
+                          </abbr>
+                        </div>
+                      </div>
                     </div>
                     <div class="event-details-container">
                       <header class="eventTitle">
@@ -742,7 +955,9 @@
                           <a href="" class="viewDetailsLink"><span>View Details</span></a>
                         </div>
                       </section>
+                      <div class="clearDiv" style="clear:both;"></div>
                     </div>
+                    <div class="clearDiv" style="clear:both"></div>
                   </article>
                   <article class="clearArticle" style="clear:both"></article>
                 </section>
@@ -764,6 +979,13 @@
                           <span>2015</span>
                         </div>    
                       </div>
+                      <div class="eventLike">
+                        <div class="eventLikeIcon">
+                          <abbr title="Add to Favorites" data-title2="Remove from favorites">
+                            <img src="http://fbe2c5f2ef3133aeaad1-938bde38aae6da0d08ebf26f58ae6895.r61.cf3.rackcdn.com/3favourite.png" data-src2="http://fbe2c5f2ef3133aeaad1-938bde38aae6da0d08ebf26f58ae6895.r61.cf3.rackcdn.com/3favourte%20highlighted.png">
+                          </abbr>
+                        </div>
+                      </div>
                     </div>
                     <div class="event-details-container">
                       <header class="eventTitle">
@@ -806,7 +1028,9 @@
                           <a href="" class="viewDetailsLink"><span>View Details</span></a>
                         </div>
                       </section>
+                      <div class="clearDiv" style="clear:both;"></div>
                     </div>
+                    <div class="clearDiv" style="clear:both"></div>
                   </article>
                   <article class="singleEventContainer singleEventContainer2">
                     <div class="event-image-container">
@@ -825,69 +1049,14 @@
                           <span>2015</span>
                         </div>    
                       </div>
-                    </div>
-                    <div class="event-details-container">
-                      <header class="eventTitle">
-                        <a href="" style="text-decoration:none"><h2 class="eventTitleText">Adlabs Imagica</h2></a>
-                      </header>
-                      <section class="eventTypeCategoriesSection">
-                        <span class="eventTypeCategoryTab">
-                          Business
-                        </span>
-                        <span class="eventTypeCategoryTab">
-                          Business
-                        </span>
-                      </section>
-                      <section class="eventCategoriesSection">
-                        <span class="eventCategoryTab">
-                          Business
-                        </span>
-                        <span class="eventCategoryTab">
-                          Business
-                        </span>
-                        <span class="eventCategoryTab">
-                          Business
-                        </span>
-                        <span class="eventCategoryTab">
-                          Business
-                        </span>
-                      </section>
-                      <section class="eventLocationSection">
-                        <div class="eventAddress">
-                          <span class="eventAddressText">1-1-2/762 al Papudi</span>
+                      <div class="eventLike">
+                        <div class="eventLikeIcon">
+                          
+                            <abbr title="Add to Favorites" data-title2="Remove from favorites">
+                            <img src="http://fbe2c5f2ef3133aeaad1-938bde38aae6da0d08ebf26f58ae6895.r61.cf3.rackcdn.com/3favourite.png" data-src2="http://fbe2c5f2ef3133aeaad1-938bde38aae6da0d08ebf26f58ae6895.r61.cf3.rackcdn.com/3favourte%20highlighted.png">
+                          </abbr>
+                          
                         </div>
-                        <div class="eventVenueCity">
-                          <span class="eventVenueCityText">
-                            Zara Shopping Mall, Dubai
-                          </span>
-                        </div>
-                      </section>
-                      <section class="viewDetailsSection">
-                        <div class="viewDetailsButton">
-                          <a href="" class="viewDetailsLink"><span>View Details</span></a>
-                        </div>
-                      </section>
-                    </div>
-                  </article>
-                  <article class="clearArticle" style="clear:both"></article>
-                </section>
-                <section class="twoEventContainer">
-                  <article class="singleEventContainer">
-                    <div class="event-image-container">
-                      <img src="//in.bmscdn.com/events/eventlisting/ET00014607.jpg" class="eventImage">
-                      <div class="eventSlot">
-                        <span class="eventSlotText">Today</span> 
-                      </div>
-                      <div class="eventDuration">
-                        <div class="eventDurationDate">
-                          <span class="eventdurationMonth">Oct</span>
-                          <span class="eventDurationStartDate">19</span>
-                          <span>-</span>
-                          <span class="eventDurationEndDate">20</span>
-                        </div>    
-                        <div class="eventDurationYear">
-                          <span>2015</span>
-                        </div>    
                       </div>
                     </div>
                     <div class="event-details-container">
@@ -931,68 +1100,9 @@
                           <a href="" class="viewDetailsLink"><span>View Details</span></a>
                         </div>
                       </section>
+                      <div class="clearDiv" style="clear:both;"></div>
                     </div>
-                  </article>
-                  <article class="singleEventContainer singleEventContainer2">
-                    <div class="event-image-container">
-                      <img src="//in.bmscdn.com/events/eventlisting/ET00014607.jpg" class="eventImage">
-                      <div class="eventSlot">
-                        <span class="eventSlotText">Today</span> 
-                      </div>
-                      <div class="eventDuration">
-                        <div class="eventDurationDate">
-                          <span class="eventdurationMonth">Oct</span>
-                          <span class="eventDurationStartDate">19</span>
-                          <span>-</span>
-                          <span class="eventDurationEndDate">20</span>
-                        </div>    
-                        <div class="eventDurationYear">
-                          <span>2015</span>
-                        </div>    
-                      </div>
-                    </div>
-                    <div class="event-details-container">
-                      <header class="eventTitle">
-                        <a href="" style="text-decoration:none"><h2 class="eventTitleText">Adlabs Imagica</h2></a>
-                      </header>
-                      <section class="eventTypeCategoriesSection">
-                        <span class="eventTypeCategoryTab">
-                          Business
-                        </span>
-                        <span class="eventTypeCategoryTab">
-                          Business
-                        </span>
-                      </section>
-                      <section class="eventCategoriesSection">
-                        <span class="eventCategoryTab">
-                          Business
-                        </span>
-                        <span class="eventCategoryTab">
-                          Business
-                        </span>
-                        <span class="eventCategoryTab">
-                          Business
-                        </span>
-                        <span class="eventCategoryTab">
-                          Business
-                        </span>
-                      </section>
-                      <section class="eventLocationSection">
-                        <div class="eventAddress">
-                          <span class="eventAddressText">1-1-2/762 al Papudi</span>
-                        </div>
-                        <div class="eventVenueCity">
-                          <span class="eventVenueCityText">
-                            Zara Shopping Mall, Dubai
-                          </span>
-                        </div>
-                      </section>
-                      <section class="viewDetailsSection">
-                        <div class="viewDetailsButton">
-                          <a href="" class="viewDetailsLink"><span>View Details</span></a>
-                        </div>
-                      </section>
-                    </div>
+                    <div class="clearDiv" style="clear:both"></div>
                   </article>
                   <article class="clearArticle" style="clear:both"></article>
                 </section>

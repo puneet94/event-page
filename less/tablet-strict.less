@@ -1,0 +1,343 @@
+
+        .sliderContainer{
+          width:100%;
+          margin:auto;
+          position:relative;
+        }
+        .imageContainer{
+          position:relative;
+          width:100%;
+          overflow:hidden;
+          margin:auto;
+          height:500px;
+          background-color:#d7f2e2;
+          text-align: center;
+        }
+        .sliderImg{
+          position:relative;
+          left:0%;
+          width:90%;
+          height:100%;
+        }
+        .imageNavigateButton1{
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          cursor: pointer;
+          width: 5%;
+          color: white;
+          font-weight: 900;
+          background-color: black;
+          height: 100%;
+          text-align: center;
+          
+        }
+        .imageNavigateButton2{
+          position: absolute;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          cursor: pointer;
+          width: 5%;
+          color: white;
+          vertical-align: text-bottom;
+          font-weight: 900;
+          background-color: black;
+          height: 100%;
+          text-align: center;
+          
+        }
+        .thumbNailList{
+          position:absolute;
+          bottom:0;
+          text-align: center;
+          width:100%;
+          box-shadow: 0 15px 24px black, 0 19px 76px black;
+        }
+        .thumBut{
+          width: 11px;
+          height: 11px;
+          margin: 0 4px;
+          position: relative;
+          border-radius: 100%;
+          display: inline-block;
+          background-color: white;
+          opacity:0.2;
+        }
+        .mainContainer{
+          background-color:rgb(242,242,242);
+        }
+        .eventsHeaderContainer{
+          text-align:center;
+          overflow:auto;
+        } 
+        .eventsHeader{
+          margin-top: 50px;
+          margin-bottom: 50px;
+        }
+        .eventsHeaderText{
+          background: #fff;
+          color: #333;
+          font-weight: 700;
+          padding: 10px 40px;
+          border: 1px solid #ddd;
+        }
+       
+        .filterButtonsSection {
+          margin-bottom: 50px;
+        }
+        
+
+        .filterButtonsList{
+          text-align: center;
+        }
+        .filterButton{
+          margin-right: 5px;
+          margin-bottom: 15px;
+          color: #666;
+          border: 1px solid #D9D9D9;
+          background-color: #D9D9D9;
+          border-radius: 20px;
+          padding: 7px 10px;
+          text-align: center;
+          font-size: 11px;
+          display: inline-block;
+          text-transform: uppercase;
+          cursor: pointer;
+          font-weight:100;
+        }
+        .dateFilterSection{
+          display: inline-block;
+          position: relative;
+        }
+        .priceFilterSection{
+          display: inline-block;
+          position: relative;
+        }
+        .filterSearchBoxSection {
+          display: inline-block; 
+          position: absolute; 
+          right: 0;
+          top: 0;
+          border-left: 1px solid #ddd;
+          height: 100%;
+        }
+        #hiddenField{
+          display: none;
+        }
+        .filterSearchcontainer{
+          background-color: white;
+          height: 50px;
+          vertical-align: middle;
+          line-height: 50px;
+          margin: auto;
+          width: 98%;
+          position: relative;
+        }
+        
+        .dateFilterIcon {
+          margin: 10px;
+        }
+        .dateFilterText{
+          font-weight:100;
+        }
+        .priceFilterIcon {
+          margin: 10px;
+        }
+        .priceFilterText{
+          font-weight:100;
+        }
+        .dateFilterToggleText{
+          color:black;
+          margin:10px;
+          cursor:pointer;
+        }
+        .filterMenu{
+          width:200px;
+          background-color:white;
+          margin:10px;
+          position: absolute;
+          z-index:999;
+          top:100%;
+          left:-6%;
+          display: none;
+        }
+        .priceFilterToggleText{
+          cursor:pointer;
+          margin:10px;
+        }
+        .priceMenu{
+          width:200px;
+          background-color:white;
+          margin:10px;
+          position: absolute;
+          z-index:999;
+          top:100%;
+          left:-6%;
+          font-weight:100;
+          display: none;
+        }
+        .menuItem{
+          font-size: 13px;
+          background: #f5f5f5;
+          border: 1px solid #f5f5f5;
+          color: #333;
+          padding: 10px 12px;
+          margin:10px;
+          cursor: pointer;
+        }
+        .searchBox{
+          position: relative;
+          display: inline-block;
+          font-weight:300;
+        }
+        .searchBoxDiv {
+            position: relative;
+            height: 100%;
+            line-height: 50px;
+            margin-left: 30px;
+            margin-right: 80px;
+        }
+        .searchBoxInput{
+          border-color: transparent;
+          box-shadow: none;
+          opacity: 1;
+          background: #FFF none repeat scroll 0% 0%;
+        }
+        .searchBoxInput:focus{
+          outline:none;
+        }
+        .searchIcon{
+          position: absolute;
+          top: 22%;
+          right: -68px;
+        }
+        .eventsContainer{
+          width:98%;
+          margin:auto;
+        }
+        .twoEventContainer{
+          margin-top:10px;
+          margin-bottom: 40px;
+        } 
+        .singleEventContainer{
+          height:200px;
+          width:49%;
+          margin-top:10px;
+          float:left;
+          background-color: white;
+          box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.16), 0 10px 10px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 15px 24px rgba(0, 0, 0, 0.22), 0 19px 76px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 10px 30px rgba(0,0,0,0.30);
+          box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+        }
+        .singleEventContainer2{
+          margin-left:2%;
+        }
+        .event-image-container{
+          position:relative;
+          width:50%;
+          height:100%;
+          float:left;
+        }
+        .eventImage{
+          height:100%;
+          width:100%;
+        }
+        .eventSlot {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          color: #FFF;
+          font-size: 12px;
+          background: #5BC199 none repeat scroll 0% 0%;
+          padding: 5px 11px;
+          border-radius: 4px;
+        }
+        .eventDuration {
+          position: absolute;
+          bottom:0;
+          left:0;
+          border: 1px solid #FFF;
+          border-radius: 4px;
+          padding: 5px 3px;
+          font-size: 12px;
+          color:#FFF;
+          margin:10px;
+        }
+        .eventLike{
+            position:absolute;
+            bottom:0;
+            right:0;
+            margin:10px;
+        }
+        .eventLikeIcon{
+            width:24px;
+            height:24px;
+            margin:10px;
+        }
+        .eventLikeIcon img{
+            width:100%;
+            height:100%;
+        }
+        .event-details-container{
+          position:relative;
+          width:50%;
+          vertical-align: top;
+          float:left;
+          padding:10px;
+          height:100%;
+          background-color: white;
+        }
+        .eventTitleText{
+          margin:0; 
+          font-size: 18px;
+          color: rgb(0,172,236);   
+        }
+        .eventTypeCategoriesSection{
+         
+        }
+        
+        .eventCategoriesSection {
+          
+        }
+        .eventCategoryTab{
+          margin: 0px;
+          color: #666;
+          border: 1px solid #D9D9D9;
+          background-color: #D9D9D9;
+          border-radius: 2px;
+          padding: 2px;
+          text-align: center;
+          font-size: 10px;
+          display: inline-block;
+          font-weight: 100;
+        }
+        .eventLocationSection {
+          margin-top:5%;
+          font-size:12px;
+        }
+        .viewDetailsSection {
+          margin-top:5%;
+        }
+        .viewDetailsLink{
+          
+          padding: 10px;
+          background: rgba(204, 51, 51, 0.8) none repeat scroll 0% 0%;
+          color: #FFF;
+          text-decoration:none;
+          font-size: 11px;
+        }
+        .eventTypeCategoryTab{
+          margin: 0px;
+          color: white;
+          border: 1px solid #D9D9D9;
+          background-color: rgb(102, 153, 153);
+          border-radius: 3px;
+          padding: 2px;
+          text-align: center;
+          font-size: 10px;
+          display: inline-block;
+          font-weight: 100;
+        }
