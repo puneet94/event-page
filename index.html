@@ -1,0 +1,1008 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Nunito:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css"> 
+  <link rel="stylesheet/less" type="text/css" href="less/index.less" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script type="text/javascript" src="event-page.js"> </script>
+  <style type="text/css">
+        .sliderContainer{
+          width:100%;
+          margin:auto;
+          position:relative;
+        }
+        .imageContainer{
+          position:relative;
+          width:100%;
+          overflow:hidden;
+          margin:auto;
+          height:500px;
+          background-color:#d7f2e2;
+          text-align: center;
+        }
+        .sliderImg{
+          position:relative;
+          left:0%;
+          width:90%;
+          height:100%;
+        }
+        .imageNavigateButton1{
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          cursor: pointer;
+          width: 5%;
+          color: white;
+          font-weight: 900;
+          background-color: black;
+          height: 100%;
+          text-align: center;
+          
+        }
+        .imageNavigateButton2{
+          position: absolute;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          cursor: pointer;
+          width: 5%;
+          color: white;
+          
+          vertical-align: text-bottom;
+          font-weight: 900;
+          background-color: black;
+          height: 100%;
+          text-align: center;
+          
+        }
+
+        .thumBut{
+          width: 11px;
+          height: 11px;
+          margin: 0 4px;
+          position: relative;
+          border-radius: 100%;
+          display: inline-block;
+          background-color: white;
+          opacity:0.2;
+        }
+        
+        .thumbNailList{
+          position:absolute;
+          bottom:0;
+          text-align: center;
+          width:100%;
+          box-shadow: 0 15px 24px black, 0 19px 76px black;
+          
+        }
+        
+        .mainContainer{
+          background-color:rgb(242,242,242);
+        }
+        .dateFilterSection{
+          display: inline-block;
+          position: relative;
+        }
+        .priceFilterSection{
+          display: inline-block;
+          position: relative;
+         
+        }
+        .filterButtonsSection {
+          margin-bottom: 50px;
+        }
+        .filterSearchBoxSection {
+          display: inline-block; 
+          position: absolute; 
+          right: 0;
+          top: 0;
+          border-left: 1px solid #ddd;
+          
+          height: 100%;
+        }
+
+    
+        .filterButtonsList{
+          text-align: center;
+        }
+        .filterButton{
+          margin-right: 5px;
+          margin-bottom: 15px;
+          color: #666;
+          border: 1px solid #D9D9D9;
+          background-color: #D9D9D9;
+          border-radius: 20px;
+          padding: 7px 10px;
+          text-align: center;
+          font-size: 11px;
+          display: inline-block;
+          text-transform: uppercase;
+          cursor: pointer;
+          font-weight:100;
+        }
+        #hiddenField{
+          display: none;
+        }
+        .filterSearchcontainer{
+          background-color: white;
+          height: 50px;
+          vertical-align: middle;
+          line-height: 50px;
+          margin: auto;
+          width: 98%;
+          position: relative;
+        }
+        .dateFilterIcon {
+          margin: 10px;
+        }
+        .dateFilterText{
+          font-weight:100;
+        }
+        .priceFilterIcon {
+          margin: 10px;
+        }
+        .priceFilterText{
+          font-weight:100;
+        }
+        .dateFilterToggleText{
+          color:black;
+          margin:10px;
+          cursor:pointer;
+        }
+        .filterMenu{
+          width:200px;
+          background-color:white;
+          margin:10px;
+          position: absolute;
+          z-index:999;
+          top:100%;
+          left:-6%;
+          display: none;
+        }
+        .priceFilterToggleText{
+          cursor:pointer;
+          margin:10px;
+        }
+        .priceMenu{
+          width:200px;
+          background-color:white;
+          margin:10px;
+          position: absolute;
+          z-index:999;
+          top:100%;
+          left:-6%;
+          font-weight:100;
+          display: none;
+        }
+        .menuItem{
+          font-size: 13px;
+          background: #f5f5f5;
+          border: 1px solid #f5f5f5;
+          color: #333;
+          padding: 10px 12px;
+          margin:10px;
+          cursor: pointer;
+        }
+        .searchBox{
+          position: relative;
+          display: inline-block;
+          font-weight:300;
+        }
+        .searchBoxDiv {
+            position: relative;
+            height: 100%;
+            line-height: 50px;
+            margin-left: 30px;
+            margin-right: 80px;
+        }
+        .searchBoxInput{
+          border-color: transparent;
+          box-shadow: none;
+          opacity: 1;
+          background: #FFF none repeat scroll 0% 0%;
+        }
+        .searchBoxInput:focus{
+          outline:none;
+        }
+        .searchIcon{
+          position: absolute;
+          top: 22%;
+          right: -68px;
+        }
+        .eventsContainer{
+          width:98%;
+          margin:auto;
+        }
+        .twoEventContainer{
+          margin-top:10px;
+          margin-bottom: 40px;
+        } 
+        .singleEventContainer{
+          height:200px;
+          width:49%;
+          margin-top:10px;
+          float:left;
+          background-color: white;
+          box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.16), 0 10px 10px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 15px 24px rgba(0, 0, 0, 0.22), 0 19px 76px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 10px 30px rgba(0,0,0,0.30);
+          box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+        }
+        .singleEventContainer2{
+          margin-left:2%;
+        }
+        .event-image-container{
+          position:relative;
+          width:50%;
+          height:100%;
+          display: inline-block;
+        }
+        .eventImage{
+          height:100%;
+          width:100%;
+        }
+        .eventSlot {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          color: #FFF;
+          font-size: 12px;
+          background: #5BC199 none repeat scroll 0% 0%;
+          padding: 5px 11px;
+          border-radius: 4px;
+        }
+        .eventDuration {
+          position: absolute;
+          bottom:10px;
+          left:10px;
+          border: 1px solid #FFF;
+          border-radius: 4px;
+          padding: 5px 3px;
+          font-size: 12px;
+          color:#FFF;
+        }
+        .event-details-container{
+          position:relative;
+          width:45%;
+          vertical-align: top;
+          display: inline-block;
+          padding:10px;
+          background-color: white;
+        }
+        .eventTitleText{
+          margin:0; 
+          font-size: 18px;
+          color: rgb(0,172,236);   
+        }
+        .eventTypeCategoriesSection{
+          margin-top:5%;
+        }
+        
+        .eventCategoriesSection {
+          
+        }
+        .eventCategoryTab{
+          margin: 0px;
+          color: #666;
+          border: 1px solid #D9D9D9;
+          background-color: #D9D9D9;
+          border-radius: 2px;
+          padding: 2px;
+          text-align: center;
+          font-size: 10px;
+          display: inline-block;
+          font-weight: 100;
+        }
+        .eventLocationSection {
+          margin-top:5%;
+          font-size:12px;
+        }
+        .viewDetailsSection {
+          margin-top:5%;
+        }
+        .viewDetailsLink{
+          
+          padding: 10px;
+          background: rgba(204, 51, 51, 0.8) none repeat scroll 0% 0%;
+          color: #FFF;
+          text-decoration:none;
+          font-size: 11px;
+        }
+        .eventTypeCategoryTab{
+          margin: 0px;
+          color: white;
+          border: 1px solid #D9D9D9;
+          background-color: rgb(102, 153, 153);
+          border-radius: 3px;
+          padding: 2px;
+          text-align: center;
+          font-size: 10px;
+          display: inline-block;
+          font-weight: 100;
+        }
+        
+
+        @media (max-width: 767px){
+        }
+  </style>
+</head>
+    <body>
+    	<div class="event-page" >
+        <section class="totalContainer">
+        
+          <section class="sliderContainer">
+            <div class="imageContainer" >
+              <img src="images/img1.jpg" class="animated sliderImg">
+              
+              <div class="thumbNailList">
+                <div class="thumBut" data-number=0>
+                  
+                </div>
+                <div class="thumBut" data-number=1>
+                  
+                </div>
+                <div class="thumBut" data-number=2>
+                  
+                </div>
+                <div class="thumBut" data-number=3>
+                  
+                </div>
+                <div class="thumBut" data-number=4>
+                  
+                </div>
+              </div>
+            </div>
+            <span id="leftBut" class="imageNavigateButton1" ><i class="fa fa-chevron-left fa-2x"></i></span>
+            <span id="rightBut" class="imageNavigateButton2"><i class="fa fa-chevron-right fa-2x"></i></span>
+
+            
+          </section>
+          <section class="mainContainer">
+            
+            <section class="filterTabsContainer">
+              <section class="eventsHeaderContainer" style="text-align:center;overflow:auto;">
+              <div class="eventsHeader" style="margin-top: 50px;
+    margin-bottom: 50px;">
+                
+                  <span style="background: #fff;
+    color: #333;
+    font-weight: 700;padding: 10px 40px;border: 1px solid #ddd;">Events</span>
+              </div>
+            </section>
+              <section class="filterButtonsSection">
+                <div class="filterButtonsList">
+                  <span class="filterButton">
+                    COMEDY
+                  </span>
+                  <span class="filterButton">
+                    COMMUNITIES
+                  </span>
+                  <span class="filterButton">
+                    CONFERENCES &amp; WORKSHOPS
+                  </span>
+                  <span class="filterButton">
+                    EXHIBITION &amp; PERFORMANCES
+                  </span>
+                  <span class="filterButton">
+                    FOOD &AMP; DRINK
+                  </span>
+                  <span class="filterButton">
+                    MUSIC
+                  </span>
+                </div>
+              </section>
+            </section>
+            <section class="filterSearchcontainer">
+              <section class="dateFilterSection">
+                <div class="dateFilterContent">
+                  <div class="filterMenu">
+                    <div class="menuItem menuItemToday">
+                      <span class="menuItemText menuItemTextToday">
+                        Today 
+                      </span> 
+                    </div>
+                    <div class="menuItem menuItemTomorrow">
+                      <span class="menuItemText menuItemTextTomorrow">
+                        Tomorrow
+                      </span> 
+                    </div>
+                    <div class="menuItem menuItemThisWeekend">
+                      <span class="menuItemText menuItemTextThisWeekend">
+                        This weekend
+                      </span> 
+                    </div>
+                    <div class="menuItem menuItemNextWeekend">
+                      <span class="menuItemText menuItemTextNextWeekend">
+                        Next Weekend
+                      </span> 
+                    </div>
+                    <div class="menuItem calenderToggle">
+                      <span class="menuItemText calenderToggleText">
+                        <input type="input" id="hiddenField" class="datepicker" value="Calender"/>
+                        
+                      </span> 
+                    </div>
+                    <div class="menuItem clearDate">
+                      <span class="menuItemText clearDateText">
+                        <i class="fa fa-times"></i> Clear Dates
+                        
+                      </span> 
+                    </div>
+                  </div>
+                  <span class="dateFilterIcon">
+                    <i class="fa fa-calendar"></i>
+                  </span>
+                  <span class="dateFilterText">
+                    Filter By Dates
+                   <!--<input type="input" id="hiddenField" class="datepicker" />Pick a date-->
+                  </span>
+                  <span class="dateFilterToggleText">
+                    <i class="fa fa-chevron-down"></i>
+                  </span>
+                </div>
+              </section>
+              <section class="priceFilterSection">
+                <div class="priceFilterContent">
+                  <div class="priceMenu">
+                    <div class="menuItem menuItemFree">
+                      <span class="menuItemText menuItemTextFree">
+                        Free
+                      </span> 
+                    </div>
+                    <div class="menuItem menuItemPaid">
+                      <span class="menuItemText menuItemTextPaid">
+                        Paid
+                      </span> 
+                    </div>
+                    <div class="menuItem clearPrice">
+                      <span class="menuItemText clearPriceText">
+                        <i class="fa fa-times"></i> Clear Prices
+                      </span> 
+                    </div>
+                  </div>
+                  <span class="priceFilterIcon">
+                    <i class="fa fa-usd"></i>
+                  </span>
+                  <span class="priceFilterText">
+                    Filter By Prices
+                  </span>
+                  <span class="priceFilterToggleText">
+                    <i class="fa fa-chevron-down"></i>
+                  </span>
+                </div>
+              </section>
+              <section class="filterSearchBoxSection">
+                <div class="searchBoxDiv">
+                  <span class="searchBox">
+                    <input type="text" class="searchBoxInput" placeholder="Search for Events">
+                  </span>
+                  <span class="searchIcon">
+                    <i class="fa fa-search"></i>
+                  </span>
+                </div>
+              </section>
+              <div class="clearSection" style="clear:both"></div>
+            </section>
+            <section class="eventsContainer">
+              <section class="eventsList">
+                <section class="twoEventContainer">
+                  <article class="singleEventContainer">
+                    <div class="event-image-container">
+                      <img src="//in.bmscdn.com/events/eventlisting/ET00014607.jpg" class="eventImage">
+                      <div class="eventSlot">
+                        <span class="eventSlotText">Today</span> 
+                      </div>
+                      <div class="eventDuration">
+                        <div class="eventDurationDate">
+                          <span class="eventdurationMonth">Oct</span>
+                          <span class="eventDurationStartDate">19</span>
+                          <span>-</span>
+                          <span class="eventDurationEndDate">20</span>
+                        </div>    
+                        <div class="eventDurationYear">
+                          <span>2015</span>
+                        </div>    
+                      </div>
+                    </div>
+                    <div class="event-details-container">
+                      <header class="eventTitle">
+                        <a href="" style="text-decoration:none"><h2 class="eventTitleText">Adlabs Imagica</h2></a>
+                      </header>
+                      <section class="eventTypeCategoriesSection">
+                        <span class="eventTypeCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventTypeCategoryTab">
+                          Business
+                        </span>
+                      </section>
+                      <section class="eventCategoriesSection">
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                      </section>
+                      <section class="eventLocationSection">
+                        <div class="eventAddress">
+                          <span class="eventAddressText">1-1-2/762 al Papudi</span>
+                        </div>
+                        <div class="eventVenueCity">
+                          <span class="eventVenueCityText">
+                            Zara Shopping Mall, Dubai
+                          </span>
+                        </div>
+                      </section>
+                      <section class="viewDetailsSection">
+                        <div class="viewDetailsButton">
+                          <a href="" class="viewDetailsLink"><span>View Details</span></a>
+                        </div>
+                      </section>
+                    </div>
+                  </article>
+                  <article class="singleEventContainer singleEventContainer2">
+                    <div class="event-image-container">
+                      <img src="//in.bmscdn.com/events/eventlisting/ET00014607.jpg" class="eventImage">
+                      <div class="eventSlot">
+                        <span class="eventSlotText">Today</span> 
+                      </div>
+                      <div class="eventDuration">
+                        <div class="eventDurationDate">
+                          <span class="eventdurationMonth">Oct</span>
+                          <span class="eventDurationStartDate">19</span>
+                          <span>-</span>
+                          <span class="eventDurationEndDate">20</span>
+                        </div>    
+                        <div class="eventDurationYear">
+                          <span>2015</span>
+                        </div>    
+                      </div>
+                    </div>
+                    <div class="event-details-container">
+                      <header class="eventTitle">
+                        <a href="" style="text-decoration:none"><h2 class="eventTitleText">Adlabs Imagica</h2></a>
+                      </header>
+                      <section class="eventTypeCategoriesSection">
+                        <span class="eventTypeCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventTypeCategoryTab">
+                          Business
+                        </span>
+                      </section>
+                      <section class="eventCategoriesSection">
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                      </section>
+                      <section class="eventLocationSection">
+                        <div class="eventAddress">
+                          <span class="eventAddressText">1-1-2/762 al Papudi</span>
+                        </div>
+                        <div class="eventVenueCity">
+                          <span class="eventVenueCityText">
+                            Zara Shopping Mall, Dubai
+                          </span>
+                        </div>
+                      </section>
+                      <section class="viewDetailsSection">
+                        <div class="viewDetailsButton">
+                          <a href="" class="viewDetailsLink"><span>View Details</span></a>
+                        </div>
+                      </section>
+                    </div>
+                  </article>
+                  <article class="clearArticle" style="clear:both"></article>
+                </section>
+                <section class="twoEventContainer">
+                  <article class="singleEventContainer">
+                    <div class="event-image-container">
+                      <img src="//in.bmscdn.com/events/eventlisting/ET00014607.jpg" class="eventImage">
+                      <div class="eventSlot">
+                        <span class="eventSlotText">Today</span> 
+                      </div>
+                      <div class="eventDuration">
+                        <div class="eventDurationDate">
+                          <span class="eventdurationMonth">Oct</span>
+                          <span class="eventDurationStartDate">19</span>
+                          <span>-</span>
+                          <span class="eventDurationEndDate">20</span>
+                        </div>    
+                        <div class="eventDurationYear">
+                          <span>2015</span>
+                        </div>    
+                      </div>
+                    </div>
+                    <div class="event-details-container">
+                      <header class="eventTitle">
+                        <a href="" style="text-decoration:none"><h2 class="eventTitleText">Adlabs Imagica</h2></a>
+                      </header>
+                      <section class="eventTypeCategoriesSection">
+                        <span class="eventTypeCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventTypeCategoryTab">
+                          Business
+                        </span>
+                      </section>
+                      <section class="eventCategoriesSection">
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                      </section>
+                      <section class="eventLocationSection">
+                        <div class="eventAddress">
+                          <span class="eventAddressText">1-1-2/762 al Papudi</span>
+                        </div>
+                        <div class="eventVenueCity">
+                          <span class="eventVenueCityText">
+                            Zara Shopping Mall, Dubai
+                          </span>
+                        </div>
+                      </section>
+                      <section class="viewDetailsSection">
+                        <div class="viewDetailsButton">
+                          <a href="" class="viewDetailsLink"><span>View Details</span></a>
+                        </div>
+                      </section>
+                    </div>
+                  </article>
+                  <article class="singleEventContainer singleEventContainer2">
+                    <div class="event-image-container">
+                      <img src="//in.bmscdn.com/events/eventlisting/ET00014607.jpg" class="eventImage">
+                      <div class="eventSlot">
+                        <span class="eventSlotText">Today</span> 
+                      </div>
+                      <div class="eventDuration">
+                        <div class="eventDurationDate">
+                          <span class="eventdurationMonth">Oct</span>
+                          <span class="eventDurationStartDate">19</span>
+                          <span>-</span>
+                          <span class="eventDurationEndDate">20</span>
+                        </div>    
+                        <div class="eventDurationYear">
+                          <span>2015</span>
+                        </div>    
+                      </div>
+                    </div>
+                    <div class="event-details-container">
+                      <header class="eventTitle">
+                        <a href="" style="text-decoration:none"><h2 class="eventTitleText">Adlabs Imagica</h2></a>
+                      </header>
+                      <section class="eventTypeCategoriesSection">
+                        <span class="eventTypeCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventTypeCategoryTab">
+                          Business
+                        </span>
+                      </section>
+                      <section class="eventCategoriesSection">
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                      </section>
+                      <section class="eventLocationSection">
+                        <div class="eventAddress">
+                          <span class="eventAddressText">1-1-2/762 al Papudi</span>
+                        </div>
+                        <div class="eventVenueCity">
+                          <span class="eventVenueCityText">
+                            Zara Shopping Mall, Dubai
+                          </span>
+                        </div>
+                      </section>
+                      <section class="viewDetailsSection">
+                        <div class="viewDetailsButton">
+                          <a href="" class="viewDetailsLink"><span>View Details</span></a>
+                        </div>
+                      </section>
+                    </div>
+                  </article>
+                  <article class="clearArticle" style="clear:both"></article>
+                </section>
+                <section class="twoEventContainer">
+                  <article class="singleEventContainer">
+                    <div class="event-image-container">
+                      <img src="//in.bmscdn.com/events/eventlisting/ET00014607.jpg" class="eventImage">
+                      <div class="eventSlot">
+                        <span class="eventSlotText">Today</span> 
+                      </div>
+                      <div class="eventDuration">
+                        <div class="eventDurationDate">
+                          <span class="eventdurationMonth">Oct</span>
+                          <span class="eventDurationStartDate">19</span>
+                          <span>-</span>
+                          <span class="eventDurationEndDate">20</span>
+                        </div>    
+                        <div class="eventDurationYear">
+                          <span>2015</span>
+                        </div>    
+                      </div>
+                    </div>
+                    <div class="event-details-container">
+                      <header class="eventTitle">
+                        <a href="" style="text-decoration:none"><h2 class="eventTitleText">Adlabs Imagica</h2></a>
+                      </header>
+                      <section class="eventTypeCategoriesSection">
+                        <span class="eventTypeCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventTypeCategoryTab">
+                          Business
+                        </span>
+                      </section>
+                      <section class="eventCategoriesSection">
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                      </section>
+                      <section class="eventLocationSection">
+                        <div class="eventAddress">
+                          <span class="eventAddressText">1-1-2/762 al Papudi</span>
+                        </div>
+                        <div class="eventVenueCity">
+                          <span class="eventVenueCityText">
+                            Zara Shopping Mall, Dubai
+                          </span>
+                        </div>
+                      </section>
+                      <section class="viewDetailsSection">
+                        <div class="viewDetailsButton">
+                          <a href="" class="viewDetailsLink"><span>View Details</span></a>
+                        </div>
+                      </section>
+                    </div>
+                  </article>
+                  <article class="singleEventContainer singleEventContainer2">
+                    <div class="event-image-container">
+                      <img src="//in.bmscdn.com/events/eventlisting/ET00014607.jpg" class="eventImage">
+                      <div class="eventSlot">
+                        <span class="eventSlotText">Today</span> 
+                      </div>
+                      <div class="eventDuration">
+                        <div class="eventDurationDate">
+                          <span class="eventdurationMonth">Oct</span>
+                          <span class="eventDurationStartDate">19</span>
+                          <span>-</span>
+                          <span class="eventDurationEndDate">20</span>
+                        </div>    
+                        <div class="eventDurationYear">
+                          <span>2015</span>
+                        </div>    
+                      </div>
+                    </div>
+                    <div class="event-details-container">
+                      <header class="eventTitle">
+                        <a href="" style="text-decoration:none"><h2 class="eventTitleText">Adlabs Imagica</h2></a>
+                      </header>
+                      <section class="eventTypeCategoriesSection">
+                        <span class="eventTypeCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventTypeCategoryTab">
+                          Business
+                        </span>
+                      </section>
+                      <section class="eventCategoriesSection">
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                      </section>
+                      <section class="eventLocationSection">
+                        <div class="eventAddress">
+                          <span class="eventAddressText">1-1-2/762 al Papudi</span>
+                        </div>
+                        <div class="eventVenueCity">
+                          <span class="eventVenueCityText">
+                            Zara Shopping Mall, Dubai
+                          </span>
+                        </div>
+                      </section>
+                      <section class="viewDetailsSection">
+                        <div class="viewDetailsButton">
+                          <a href="" class="viewDetailsLink"><span>View Details</span></a>
+                        </div>
+                      </section>
+                    </div>
+                  </article>
+                  <article class="clearArticle" style="clear:both"></article>
+                </section>
+                <section class="twoEventContainer">
+                  <article class="singleEventContainer">
+                    <div class="event-image-container">
+                      <img src="//in.bmscdn.com/events/eventlisting/ET00014607.jpg" class="eventImage">
+                      <div class="eventSlot">
+                        <span class="eventSlotText">Today</span> 
+                      </div>
+                      <div class="eventDuration">
+                        <div class="eventDurationDate">
+                          <span class="eventdurationMonth">Oct</span>
+                          <span class="eventDurationStartDate">19</span>
+                          <span>-</span>
+                          <span class="eventDurationEndDate">20</span>
+                        </div>    
+                        <div class="eventDurationYear">
+                          <span>2015</span>
+                        </div>    
+                      </div>
+                    </div>
+                    <div class="event-details-container">
+                      <header class="eventTitle">
+                        <a href="" style="text-decoration:none"><h2 class="eventTitleText">Adlabs Imagica</h2></a>
+                      </header>
+                      <section class="eventTypeCategoriesSection">
+                        <span class="eventTypeCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventTypeCategoryTab">
+                          Business
+                        </span>
+                      </section>
+                      <section class="eventCategoriesSection">
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                      </section>
+                      <section class="eventLocationSection">
+                        <div class="eventAddress">
+                          <span class="eventAddressText">1-1-2/762 al Papudi</span>
+                        </div>
+                        <div class="eventVenueCity">
+                          <span class="eventVenueCityText">
+                            Zara Shopping Mall, Dubai
+                          </span>
+                        </div>
+                      </section>
+                      <section class="viewDetailsSection">
+                        <div class="viewDetailsButton">
+                          <a href="" class="viewDetailsLink"><span>View Details</span></a>
+                        </div>
+                      </section>
+                    </div>
+                  </article>
+                  <article class="singleEventContainer singleEventContainer2">
+                    <div class="event-image-container">
+                      <img src="//in.bmscdn.com/events/eventlisting/ET00014607.jpg" class="eventImage">
+                      <div class="eventSlot">
+                        <span class="eventSlotText">Today</span> 
+                      </div>
+                      <div class="eventDuration">
+                        <div class="eventDurationDate">
+                          <span class="eventdurationMonth">Oct</span>
+                          <span class="eventDurationStartDate">19</span>
+                          <span>-</span>
+                          <span class="eventDurationEndDate">20</span>
+                        </div>    
+                        <div class="eventDurationYear">
+                          <span>2015</span>
+                        </div>    
+                      </div>
+                    </div>
+                    <div class="event-details-container">
+                      <header class="eventTitle">
+                        <a href="" style="text-decoration:none"><h2 class="eventTitleText">Adlabs Imagica</h2></a>
+                      </header>
+                      <section class="eventTypeCategoriesSection">
+                        <span class="eventTypeCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventTypeCategoryTab">
+                          Business
+                        </span>
+                      </section>
+                      <section class="eventCategoriesSection">
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                        <span class="eventCategoryTab">
+                          Business
+                        </span>
+                      </section>
+                      <section class="eventLocationSection">
+                        <div class="eventAddress">
+                          <span class="eventAddressText">1-1-2/762 al Papudi</span>
+                        </div>
+                        <div class="eventVenueCity">
+                          <span class="eventVenueCityText">
+                            Zara Shopping Mall, Dubai
+                          </span>
+                        </div>
+                      </section>
+                      <section class="viewDetailsSection">
+                        <div class="viewDetailsButton">
+                          <a href="" class="viewDetailsLink"><span>View Details</span></a>
+                        </div>
+                      </section>
+                    </div>
+                  </article>
+                  <article class="clearArticle" style="clear:both"></article>
+                </section>
+              </section>
+            </section>
+            
+          </section>
+        </section>
+	    </div>
+      
+
+    </body>
+</html>

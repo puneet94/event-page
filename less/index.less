@@ -1,0 +1,101 @@
+/*Clear*/
+
+@import "clear";
+/*animate.css*/
+
+//@import "animate";
+/*font-face for Circular Lenito Bold*/
+
+@font-face {
+    font-family: 'Circular Lenito Bold';
+    src: url('..//fonts/lineto-circular-pro-bold.eot');
+    /* IE9 Compat Modes */
+    
+    src: url('..//fonts/lineto-circular-pro-bold.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+    
+    url('..//fonts/lineto-circular-pro-bold.woff2') format('woff2'),
+    /* Super Modern Browsers */
+    
+    url('..//fonts/lineto-circular-pro-bold.woff') format('woff'),
+    /* Pretty Modern Browsers */
+    
+    url('..//fonts/lineto-circular-pro-bold.ttf') format('truetype'),
+    /* Safari, Android, iOS */
+    
+    url('..//fonts/lineto-circular-pro-bold.svg#svgFontName') format('svg');
+    /* Legacy iOS */
+}
+
+/*font-family: 'Circular Lenito Bold';*/
+.event-page{
+    .eventsPlaceHeaderText,
+    .eventTitle,
+    .filtersSearchHeadertext,
+    .narrowResultsText{
+        font-family: 'Circular Lenito Bold' ;
+    }
+    /*font-family: 'Nunito', sans-serif;*/
+    .filterButton,
+    .dateFilterText,
+    .eventDuration,
+    .eventSlot,
+    .eventTypeCategoryTab,
+    .eventCategoryTab,
+    .eventLocationSection,
+    .viewDetailsLink,
+    .dateFilterToggleText,
+    .filterMenu,
+    .priceFilterText,
+    .eventsHeader,
+    .priceMenu,
+    .searchBox{
+        font-family: 'Nunito', sans-serif ;
+    }
+}
+
+@xs-vvvmin: 50px;
+@xs-vvmin: 240px;
+@xs-vmin: 320px;
+@xs-min: 480px;
+@sm-min: 768px;
+@md-min: 992px;
+@lg-min: 1200px;
+@xs-vvvmax: (@xs-vvmin - 1);
+@xs-vvmax: (@xs-vmin - 1);
+@xs-vmax: (@xs-min - 1);
+@xs-max: (@sm-min - 1);
+@sm-max: (@md-min - 1);
+@md-max: (@lg-min - 1);
+@vvsmphone: ~"only screen and (min-width: @{xs-vvvmin}) and (max-width: @{xs-vvvmax})";
+@vsmphone: ~"only screen and (min-width: @{xs-vvmin}) and (max-width: @{xs-vvmax})";
+@smphone: ~"only screen and (min-width: @{xs-vmin}) and (max-width: @{xs-vmax})";
+@phone-strict: ~"only screen and (min-width: @{xs-min}) and (max-width: @{xs-max})";
+@tablet-strict: ~"only screen and (min-width: @{sm-min}) and (max-width: @{sm-max})";
+@desktop-strict: ~"only screen and (min-width: @{md-min}) and (max-width: @{md-max})";
+@large: ~"only screen and (min-width: @{lg-min})";
+.event-page {
+    @media @large {
+        
+
+    }
+    @media @desktop-strict {
+        @import "desktop-strict";
+    }
+    @media @tablet-strict {
+        @import "tablet-strict";
+    }
+    @media @phone-strict {
+        @import "phone-strict";
+    }
+    @media @smphone {
+        @import "smphone";
+    }
+    @media @vsmphone {
+        @import "vsmphone";
+    }
+    @media @vvsmphone {
+        @import "vvsmphone";
+    }
+}
+/*Modal styles*/
